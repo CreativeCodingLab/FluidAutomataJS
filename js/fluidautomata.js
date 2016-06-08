@@ -481,7 +481,7 @@ function init() {
   //load in our noise texture
   loader = new THREE.TextureLoader();
 
-  splashTexture = loader.load('images/splash.png');
+  splashTexture = loader.load('images/splash.jpg');
   genTexture = createRGBTexture(window.innerWidth * 1, window.innerHeight * 1);
 
 
