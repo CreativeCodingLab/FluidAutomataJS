@@ -3,7 +3,7 @@ Port of Fluid Automata to WebGL. Works well on Chrome and Firefox, but Safari ha
 
 Instructions:
 
-- Download code and run fluidautomata.html from a local server. 
+- Clone or download and unzip <a href="https://github.com/CreativeCodingLab/FluidAutomataJS/archive/master.zip">code</a> and run fluidautomata.html from your local webserver. 
 
 Demo: 
 
