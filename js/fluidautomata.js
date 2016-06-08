@@ -517,6 +517,9 @@ function init() {
     document.addEventListener('mousedown', mousedown);
     document.addEventListener('mouseup', mouseup);
     document.addEventListener('mousemove', mousemove);
+    document.addEventListener('touchstart', touchdown);
+    document.addEventListener('touchend', touchdown);
+    document.addEventListener('touchmove', touchdown);
     window.addEventListener( 'resize', onWindowResize, false );
 
     isInitialized = true;
@@ -798,7 +801,7 @@ var controls = new function () {
 };
 
 
-
+//wha?
 var presetsFolder = gui.addFolder('PRESETS');
 
 
@@ -1048,26 +1051,147 @@ var firstClick = true;
 var magVal = 0.01;
 
 function mouseup(event){
+
+    //  event.preventDefault();
+
+
   if (!isOverControls) {
     isPressing = false;
     isDragging = false;
     currentMouseIdx = -1;
+ 
+    //alert("mouseup : px / py" + px + " / " + py);
+ 
+
   }
 
 }
 
 
 
-function mousedown(event){
+function touchdown(evt){
+   
+    //evt.preventDefault();
 
     if (splashOn && !isOverControls) {
-         removeSplash();
+      removeSplash();
     }
 
 
-   if (!isOverControls) {
+    var reaction_type = null;
+    var touch = null;
+
+    switch (evt.type) 
+    {
+      case "touchstart": 
+        touch = evt.changedTouches[0]; //... specify which touch for later extraction of XY position values.
+        reaction_type = "onclick"; 
+        break;
+      case "touchmove": // I don't use this
+        reaction_type = "mousemove";
+        touch = evt.changedTouches[0];
+        break;
+      case "touchend":  // I don't use this     
+        reaction_type = "mouseup";
+        touch = evt.changedTouches[0];
+        break;
+    }
+
+    if (reaction_type == "onclick")
+    {
+      px =   touch.clientX;
+      py =   touch.clientY; 
+
+      var cellSize = 1.0 / numCellsPerSide;
+
+      var col = Math.round((px / window.innerWidth) / cellSize);
+      var row = Math.round((py / window.innerHeight) / cellSize);
+
+      currentMouseIdx  = getVertexFromColRow(col, row, numCellsPerSide+1);
+
+      isPressing = true;
+    
+    } else if (reaction_type == "mousemove") {
 
    
+      var cellSize = 1.0 / numCellsPerSide;
+
+      var col = Math.round((touch.clientX / window.innerWidth) / cellSize);
+      var row = Math.round((touch.clientY /window.innerHeight) / cellSize);
+
+      currentMouseIdx = getVertexFromColRow(col, row, numCellsPerSide+1);
+
+      currentMouseTheta = Math.atan2(-(py - touch.clientY), px - touch.clientX);
+
+      px =   touch.clientX;
+      py =   touch.clientY; 
+
+      isDragging = true;
+
+    
+    } else if ( reaction_type == "mouseup" )  {
+
+      isPressing = false;
+      isDragging = false;
+      currentMouseIdx = -1;
+    }
+
+
+    /*
+
+       if (!isOverControls) {
+
+       if (firstClick == true) {
+       firstClick = false;
+       px = event.clientX;
+       py = event.clientY;
+       }
+
+       var cellSize = 1.0 / numCellsPerSide;
+
+       var col = Math.round((event.clientX / window.innerWidth) / cellSize);
+       var row = Math.round((event.clientY /window.innerHeight) / cellSize);
+
+       currentMouseIdx  = getVertexFromColRow(col, row, numCellsPerSide+1);
+
+
+       px = event.clientX;
+       py = event.clientY;
+
+
+//console.log("px / py" + px + " / " + py);
+
+
+
+
+isPressing = true;
+
+// alert("mousedown : px / py" + px + " / " + py);
+
+
+}
+*/
+
+}
+
+
+function blockMove() {
+      event.preventDefault() ;
+}
+
+
+
+
+function mousedown(event){
+
+
+  if (splashOn && !isOverControls) {
+    removeSplash();
+  }
+
+
+  if (!isOverControls) {
+
     if (firstClick == true) {
       firstClick = false;
       px = event.clientX;
@@ -1085,13 +1209,27 @@ function mousedown(event){
     px = event.clientX;
     py = event.clientY;
 
+
+    //console.log("px / py" + px + " / " + py);
+
+
+
+
     isPressing = true;
+
+    // alert("mousedown : px / py" + px + " / " + py);
+
+
   }
 
 }
 
 
 function mousemove(event){
+  //event.preventDefault();
+
+
+
   if (!isOverControls) {
 
     if (firstClick == true) {
@@ -1115,7 +1253,8 @@ function mousemove(event){
 
     px = event.clientX;
     py = event.clientY;
-  }
+
+ }
 }
 
 function dissipateEnergyForAllVertices() {
