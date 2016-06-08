@@ -9,6 +9,13 @@ Demo:
 
 - A working demo (at least with Chrome and Firefox) can be found at: http://creativecoding.evl.uic.edu/fluidautomata/.
 
+Issues: 
 
+- I would be grateful if someone wants to help me debug the issues in Safari (with dynamically loading fields into dat.gui, currently completely crashing) and making sure the webcam works properly in Chrome (sometimes doesn't ask permissions to use webcam).
+
+Info:
+
+- Read details of the fluid and image processing algorithms in the Computational Aesthetics paper at:
+http://creativecoding.evl.uic.edu/pdfs/Forbes_GenerativeFluidProfiles_CAe2013.pdf. Proc. ACM/Eurographics International Symposium on Computational Aesthetics in Graphics, Visualization, and Imaging (CAe), pages 37-43, 2013.
 
 
