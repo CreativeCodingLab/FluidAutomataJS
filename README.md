@@ -1,5 +1,5 @@
 # FluidAutomataJS
-Port of Fluid Automata to WebGL. Works well on Chrome and Firefox, but Safari has issues still and is not working.
+Port of Fluid Automata to WebGL. Works well on Chrome, Firefox, and Safari.
 
 Instructions:
 
@@ -9,11 +9,11 @@ Instructions:
 
 Demo: 
 
-- A working demo (at least with Chrome and Firefox) can be found at: http://creativecoding.evl.uic.edu/fluidautomata/.
+- A working demo can be found at: http://creativecoding.evl.uic.edu/fluidautomata/.
 
 Issues: 
 
-- I would be grateful if someone wants to help me debug the issues in Safari (with dynamically loading fields into dat.gui, currently completely crashing) and making sure the webcam works properly in Chrome (sometimes doesn't ask permissions to use webcam).
+- I would be grateful if someone wants to help me debug how to make sure the webcam works properly in Chrome and Safari (sometimes doesn't ask permissions to use webcam).
 
 Technical Details:
 

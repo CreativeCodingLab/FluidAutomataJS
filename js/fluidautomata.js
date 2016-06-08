@@ -803,10 +803,11 @@ var presetsFolder = gui.addFolder('PRESETS');
 
 
 for(name in presets) {
-
+  console.log("preset name = " + name);
   var t =  {
     vals : presets[name],
-    [ '' + ( () => name)() ] : 
+    //[ '' + ( () => name)() ] : 
+    [name] :
       function() {
         loadPresetFromArray(this.vals);
       }
