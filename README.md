@@ -15,7 +15,7 @@ Issues:
 
 Technical Details:
 
-A. G. Forbes, T. Hollerer, and G. Legrady. Generative fluid profiles for interactive media arts projects. Proc. ACM/Eurographics International Symposium on Computational Aesthetics in Graphics, Visualization, and Imaging (CAe), pages 37-43, 2013. http://creativecoding.evl.uic.edu/pdfs/Forbes_GenerativeFluidProfiles_CAe2013.pdf. 
+- A. G. Forbes, T. Hollerer, and G. Legrady. Generative fluid profiles for interactive media arts projects. Proc. ACM/Eurographics International Symposium on Computational Aesthetics in Graphics, Visualization, and Imaging (CAe), pages 37-43, 2013. http://creativecoding.evl.uic.edu/pdfs/Forbes_GenerativeFluidProfiles_CAe2013.pdf. 
 
 
 
