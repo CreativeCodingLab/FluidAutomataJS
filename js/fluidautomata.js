@@ -449,7 +449,7 @@ function loadLoResBWNoiseTexture() {
   if (videoIsOn || webcamIsOn) {
     turnOffVideo();
   }
-  baseTexture = createBlackAndWhiteTexture(window.innerWidth / 8 , window.innerHeight / 8);
+  baseTexture = createBlackAndWhiteTexture(Math.floor(window.innerWidth / 8) , Math.floor(window.innerHeight / 8));
 }
 
 function loadHiResRGBNoiseTexture() {
@@ -464,7 +464,7 @@ function loadLoResRGBNoiseTexture() {
     turnOffVideo();
   }
 
-  baseTexture = createRGBTexture(window.innerWidth / 8 , window.innerHeight / 8);
+  baseTexture = createRGBTexture(Math.floor(window.innerWidth / 8) , Math.floor(window.innerHeight / 8));
 }
 
 

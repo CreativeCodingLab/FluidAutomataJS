@@ -11,6 +11,7 @@ function createTexture(data, tw, th) {
 
 function createRGBTexture(tw, th) {
 
+  console.log("tw / th = " + tw + "/" + th);
   var data = new Uint8Array(tw * th * 4);
 
   for (var count = 0; count < data.length; count+= 4) {
@@ -25,6 +26,7 @@ function createRGBTexture(tw, th) {
 
 function createBlackAndWhiteTexture(tw, th) {
 
+  console.log("tw / th = " + tw + "/" + th);
   var data = new Uint8Array(tw * th * 4);
 
   for (var count = 0; count < data.length; count+= 4) {
