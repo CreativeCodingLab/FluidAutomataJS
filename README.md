@@ -5,6 +5,8 @@ Instructions:
 
 - Clone or download and unzip <a href="https://github.com/CreativeCodingLab/FluidAutomataJS/archive/master.zip">code</a> and run fluidautomata.html from your local webserver. 
 
+- Using the control panel, you can click on presets, change fluid and image processing paramaters, turn the fluids on and off, and change the background texture to an image, webcam, video, or colored pixels. 
+
 Demo: 
 
 - A working demo (at least with Chrome and Firefox) can be found at: http://creativecoding.evl.uic.edu/fluidautomata/.
