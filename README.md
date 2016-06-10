@@ -11,9 +11,13 @@ Demo:
 
 - A working demo can be found at: http://creativecoding.evl.uic.edu/fluidautomata/.
 
+- Click on 'Close Controls' and then Press 'H' to completely hide the Control Panel. Press 'H' again to bring it back. 
+
 Issues: 
 
-- I would be grateful if someone wants to help me debug how to make sure the webcam works properly in Chrome and Safari (sometimes doesn't ask permissions to use webcam).
+- I would be grateful if someone wants to help me debug how to make sure the webcam works properly in Chrome and Safari (sometimes it doesn't ask permissions to use webcam).
+
+- I haven't gotten around to implementing multi-touch for tablets & phones. Should be easy enough to do if someone wants to take a stab at it...
 
 Technical Details:
 

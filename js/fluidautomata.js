@@ -533,8 +533,8 @@ function onWindowResize() {
 
 
 var needToUpdateGridSize = false;
-var newCols;
-var newRows;
+var newCols = numCellsPerSide;
+var newRows = numCellsPerSide;
 
 function updateGridSize(cols, rows) {
 
@@ -726,6 +726,13 @@ function animate() {
   oL = controls.Angularity;
   oR = -controls.Angularity;
 
+  
+  if (controls.Grid-1 != newCols) {
+    console.log("here : " + controls.Grid + " / " + newCols);
+    newCols = newRows = (controls.Grid - 1);
+    needToUpdateGridSize = true;
+  }
+
   render();
 }
 
@@ -748,18 +755,12 @@ function loadPresetFromArray(arr) {
     fluidsOn = arr["fluids"]; 
   }
 
-  //test
-   if (arr.hasOwnProperty([ "grid" ]) ) {
-    needToUpdateGridSize = true;
+  if (arr.hasOwnProperty([ "grid" ]) ) {
     newCols = arr["grid"][0];
     newRows = arr["grid"][1];
+    needToUpdateGridSize = true;
 
- }
-
-
-  
-
-
+  }
 }
 
 
@@ -767,11 +768,11 @@ var textPanel = document.getElementById('text1');
 var isOverTextPanel = false;
 
 textPanel.onmouseover = function () {
-    isOverControls = true;
+  isOverControls = true;
 }
 
 textPanel.onmouseout = function () {
-    isOverControls = false;
+  isOverControls = false;
 }
 
 
@@ -780,11 +781,11 @@ var dg = document.getElementsByClassName('dg')[0];
 var isOverControls = false;
 
 dg.onmouseover = function () {
-    isOverControls = true;
+  isOverControls = true;
 }
 
 dg.onmouseout = function () {
-    isOverControls = false;
+  isOverControls = false;
 
 }
 
@@ -797,7 +798,9 @@ var controls = new function () {
   this.Energy = 0.0001;
   this.Momentum = 0.0001;
   this.Angularity = 0.0001;
-  
+  this.Grid = numCellsPerSide;
+
+
 };
 
 
@@ -836,6 +839,7 @@ paramsFolder.add(controls, 'Fluidity', 0.9500, 1.001).step(0.0001).listen();
 paramsFolder.add(controls, 'Momentum', 0.001, 0.5).step(0.0001).listen();
 paramsFolder.add(controls, 'Angularity', 0.00, Math.PI/2.0).step(0.0001).listen();
 paramsFolder.add(controls, 'Energy', 0.01, 0.99).step(0.0001).listen();
+paramsFolder.add(controls, 'Grid', 2, 32).step(1).listen();
 
 
 
